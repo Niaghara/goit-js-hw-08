@@ -9,7 +9,7 @@
 //   </label>
 //   <button type="submit">Submit</button>
 // </form> */}
-"use strict";
+'use strict';
 import throttle from 'lodash.throttle';
 
 const STORAGE_KEY = 'feedback-form-state';
@@ -26,6 +26,7 @@ populateForm();
 function onFormSubmit(e) {
   e.preventDefault();
   e.currentTarget.reset();
+  console.log(localStorage.getItem(STORAGE_KEY));
   localStorage.removeItem(STORAGE_KEY);
 }
 
@@ -35,7 +36,6 @@ function onFormData() {
     message: message.value,
   };
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
-  console.dir(formData);
 }
 
 function populateForm() {
